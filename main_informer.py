@@ -7,12 +7,10 @@ from torch.utils.data import DataLoader
 from sklearn.preprocessing import MinMaxScaler
 import torch
 from torch.optim.lr_scheduler import StepLR
-import matplotlib.pyplot as plt
 import random
 from model.model import My_Informer
 import scipy.io as sio
 import pandas as pd
-# from utils.vmd import vmd
 
 seed = 1  # 设置一个整数作为随机种子
 random.seed(seed)
@@ -86,7 +84,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Train and evaluate the Informer model.')
     parser.add_argument('--data', type=Path, required=True, help='Path to a numeric CSV dataset kept outside version control.')
     parser.add_argument('--checkpoint', type=Path, default=Path('model_train/Train_Model.pth'), help='Path for the generated model weights.')
-    parser.add_argument('--results-dir', type=Path, default=Path('run_result_MS'), help='Directory for generated evaluation results.')
+    parser.add_argument('--results-dir', type=Path, default=Path('results'), help='Directory for generated evaluation results.')
     args = parser.parse_args()
 
     train_size = 3510
@@ -200,7 +198,7 @@ if __name__ == '__main__':
         f'MAE={original_test_mae:.6f}; normalized MSE={scaled_test_mse:.6f}'
     )
     args.results_dir.mkdir(parents=True, exist_ok=True)
-    result_path = args.results_dir / 'My_Informer_VMD' / 'weight0'
+    result_path = args.results_dir / 'My_Informer'
     result_path.mkdir(parents=True, exist_ok=True)
     mat_name = args.data.stem
     sio.savemat(

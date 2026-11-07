@@ -14,5 +14,4 @@ __pycache__/
 
 # Training outputs
 model_train/
-run_result_MS/last_mse.mat
-run_result_MS/My_Informer_VMD/
+results/
