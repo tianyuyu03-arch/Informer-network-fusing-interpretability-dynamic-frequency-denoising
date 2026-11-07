@@ -1,0 +1,18 @@
+# Local data and generated artifacts
+*.csv
+*.mat
+*.fig
+*.pth
+*.pt
+*.npz
+
+# Python cache and local tooling
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.idea/
+
+# Training outputs
+model_train/
+run_result_MS/last_mse.mat
+run_result_MS/My_Informer_VMD/
